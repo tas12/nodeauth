@@ -4,7 +4,7 @@ class AuthController {
 
     /**
      * Get login page.
-     * 
+     *
      * @return View
      */
     getLogin({ view }) {
@@ -13,7 +13,7 @@ class AuthController {
 
     /**
      * Do login.
-     * 
+     *
      * @return Redirect
      */
     async performLogin({ request, response, auth, session }) {
@@ -30,13 +30,13 @@ class AuthController {
 
     /**
      * Logout.
-     * 
+     *
      * @return Redirect
      */
     async performLogout({ auth, response, session }) {
         await auth.logout()
         session.flash({ message: 'You have been logged out.' })
-        
+
         response.route('auth.get_login')
     }
 }
